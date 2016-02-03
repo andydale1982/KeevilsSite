@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Core
+@using Merchello.Web
+@{
+    Layout = "SecondaryLayout.cshtml";
+}
+
+Example Product
+
+@{
+    // Merchello product
+    var product = ((Merchello.Web.Models.ContentEditing.ProductDisplay)CurrentPage.product);
+}
+
+<!--
+    Umbraco Content Page Id: @CurrentPage.id
+-->
+<!-- exampletable class is only for center alignment -->
+<table class="exampletable">
+    <tr>
+        <td>
+            Item
+        </td>
+        <td>
+            Item Value
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Product:
+        </td>
+        <td>
+            @product.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description:
+        </td>
+        <td>
+            @Model.Content.GetPropertyValue("productdescription")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Avaliable:
+        </td>
+        <td>
+            @product.Available
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Price:
+        </td>
+        <td>
+            @product.Price.ToString("C")
+        </td>
+    </tr>
+</table>
